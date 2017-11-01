@@ -1,8 +1,10 @@
 package android.coolweather.aom.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.coolweather.aom.coolweather.gson.Forecast;
 import android.coolweather.aom.coolweather.gson.Weather;
+import android.coolweather.aom.coolweather.service.AutoUpdateService;
 import android.coolweather.aom.coolweather.util.HttpUtil;
 import android.coolweather.aom.coolweather.util.Utility;
 import android.graphics.Color;
@@ -201,6 +203,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /*加载必应每日图片
